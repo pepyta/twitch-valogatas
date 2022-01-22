@@ -1,7 +1,7 @@
 import { Button, Card, CardContent, Container, Typography } from "@mui/material";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import LoadingPage from "../../components/misc/LoadingPage";
+import LoadingPage from "@components/misc/LoadingPage";
 
 const SigninPage = () => {
     const { status } = useSession();
