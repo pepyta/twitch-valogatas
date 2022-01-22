@@ -1,11 +1,21 @@
-import { CssBaseline } from "@mui/material";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { AppProps } from "next/app";
+import { SessionProvider } from "next-auth/react";
 
-const MyApp = ({ Component, pageProps }) => {
+const theme = createTheme({
+    palette: {
+        mode: "dark",
+    },
+});
+
+const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
     return (
-        <>
-            <CssBaseline />
-            <Component {...pageProps} />
-        </>
+        <SessionProvider session={session}>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Component {...pageProps} />
+            </ThemeProvider>
+        </SessionProvider>
     );
 };
 
