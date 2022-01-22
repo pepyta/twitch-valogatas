@@ -1,6 +1,7 @@
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
+import AuthProvider from "@components/providers/AuthProvider";
 
 const theme = createTheme({
     palette: {
@@ -13,7 +14,9 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
         <SessionProvider session={session}>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Component {...pageProps} />
+                <AuthProvider>
+                    <Component {...pageProps} />
+                </AuthProvider>
             </ThemeProvider>
         </SessionProvider>
     );
