@@ -12,13 +12,14 @@ const AuthProvider = (props:  AuthProviderProps) => {
     const router = useRouter();
     const session = useSession();
 
-    if(session.status !== "authenticated" && router.route === "/auth/signin") {
+    if(session.status !== "authenticated" && router.route !== "/auth/signin") {
         if(session.status === "unauthenticated") router.push("/auth/signin");
 
         return (
             <LoadingPage />
         );
     }
+
 
     return (
         <>

@@ -17,12 +17,12 @@ model Account {
   type               String
   provider           String
   providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
+  refresh_token      String? @db.Text
+  access_token       String? @db.Text
   expires_at         Int?
   token_type         String?
   scope              String?
-  id_token           String?  @db.Text
+  id_token           String? @db.Text
   session_state      String?
   oauth_token_secret String?
   oauth_token        String?
@@ -41,13 +41,14 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String        @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?       @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
+  applications  Application[]
 }
 
 model VerificationToken {
@@ -56,4 +57,24 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Application {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userid], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  userid String @unique
+  @@map("applications")
+}
+
+model Affiliate {
+  id           String  @id @default(cuid())
+  username     String  @unique
+  isPartner    Boolean @default(false)
+  allowYoutube Boolean @default(true)
+  allowTiktok  Boolean @default(true)
+
+  userid String?
+  @@map("affiliates")
 }
