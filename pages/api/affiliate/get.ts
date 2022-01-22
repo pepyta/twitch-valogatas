@@ -4,19 +4,16 @@ import { getSession } from "next-auth/react";
 
 const getAffiliate = async (req: NextApiRequest, res: NextApiResponse) => {
     const session = await getSession({ req });
-    
+
     let affiliate = await prisma.affiliate.findUnique({
         where: {
             username: session.user.name,
         },
-    });
-
-    if(!affiliate) {
-        affiliate = {};
-        affiliate.allowTiktok = false;
-        affiliate.allowYoutube = false;
-        affiliate.isPartner = false;
-    }
+    }) || {
+        allowTiktok: false,
+        allowYoutube: false,
+        isPartner: false,
+    };
 
     res.json(affiliate);
 };
