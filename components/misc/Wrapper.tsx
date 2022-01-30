@@ -1,36 +1,22 @@
 import { AppBar, Avatar, Box, Drawer, IconButton, List, ListItem, ListItemAvatar, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material";
 import { PropsWithChildren, useState } from "react";
 import { ExitToAppRounded as SignOutIcon, MenuRounded as MenuIcon, SettingsRounded as SettingsIcon } from "@mui/icons-material";
-import { signOut, useSession } from "next-auth/react";
 
 export const DRAWER_WIDTH = 300;
 
 export type WrapperProps = PropsWithChildren<{}>;
 
 const Wrapper = (props: WrapperProps) => {
-    const { data } = useSession();
     const [isOpen, setOpen] = useState(false);
 
     const drawer = (
         <div>
             <List>
-                <ListItem>
-                    <ListItemAvatar>
-                        <Avatar src={data.user.image} />
-                    </ListItemAvatar>
-                    <ListItemText primary={data.user.name} secondary={data.user.email} />
-                </ListItem>
                 <ListItem button>
                     <ListItemIcon>
                         <SettingsIcon />
                     </ListItemIcon>
                     <ListItemText primary={"Beállítások"} />
-                </ListItem>
-                <ListItem button onClick={() => signOut()}>
-                    <ListItemIcon>
-                        <SignOutIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={"Kijelentkezés"} />
                 </ListItem>
             </List>
         </div>
