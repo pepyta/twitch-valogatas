@@ -9,7 +9,7 @@ const Timetable = () => {
         <Grid item xs={12} sx={{
             height: 600,
             position: "relative",
-            background: "url(./background.jpg)",
+            background: "url(./bg.png)",
             backgroundSize: "cover",
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
