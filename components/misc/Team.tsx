@@ -30,20 +30,19 @@ const Team = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Grid container spacing={2}>
-                                    {[0,0,0,0,0,0].map((el, index) => (
-                                        
-                                    <Grid item xs={2} key={`team-${index}`}>
-                                    <Grid container spacing={1}>
-                                        <Grid item xs={12}>
-                                            <Avatar sx={{ margin: "auto" }}>H</Avatar>
+                                    {[0, 0, 0, 0, 0, 0].map((el, index) => (
+                                        <Grid item xs={2} key={`team-${index}`}>
+                                            <Grid container spacing={1}>
+                                                <Grid item xs={12}>
+                                                    <Avatar sx={{ margin: "auto" }}>H</Avatar>
+                                                </Grid>
+                                                <Grid item xs={12}>
+                                                    <Typography sx={{ textAlign: "center", margin: "auto", }}>
+                                                        Teszt Elek
+                                                    </Typography>
+                                                </Grid>
+                                            </Grid>
                                         </Grid>
-                                        <Grid item xs={12}>
-                                            <Typography sx={{ textAlign: "center", margin: "auto", }}>
-                                                Teszt Elek
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
                                     ))}
                                 </Grid>
                             </Grid>
