@@ -1,7 +1,6 @@
-import Contact from "@components/misc/Contact";
 import Team from "@components/misc/Team";
 import Timetable from "@components/misc/Timetable";
-import Youtube from "@components/misc/Youtube";
+import Videos from "@components/misc/Videos";
 import { AppBar, Container, Grid, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
@@ -22,12 +21,7 @@ const HomePage = () => {
             <Grid container spacing={2}>
                 <Timetable />
                 <Team />
-                <Grid item xs={12} md={6}>
-                    <Youtube />
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <Contact />
-                </Grid>
+                <Videos />
             </Grid>
         </Box>
     );

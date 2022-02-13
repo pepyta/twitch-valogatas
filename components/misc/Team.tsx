@@ -2,19 +2,9 @@ import { Avatar, Card, CardContent, Container, Grid, Typography } from "@mui/mat
 
 const Team = () => {
     return (
-        <Grid item xs={12} sx={{
-            position: "relative",
-            minHeight: 600,
-        }}>
+        <Grid item xs={12}>
             <Container
-                maxWidth={"md"}
-                sx={{
-
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                }}
+                maxWidth={"lg"}
             >
                 <Card>
                     <CardContent>

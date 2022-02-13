@@ -1,5 +1,7 @@
+import CategoryProvider from "@components/providers/CategoryProvider";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { AppProps } from "next/app";
+import Head from "next/head";
 
 const theme = createTheme({
     palette: {
@@ -10,8 +12,15 @@ const theme = createTheme({
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
     return (
         <ThemeProvider theme={theme}>
+            <Head>
+                <title>
+                    Twitch válogatás
+                </title>
+            </Head>
             <CssBaseline />
-            <Component {...pageProps} />
+            <CategoryProvider>
+                <Component {...pageProps} />
+            </CategoryProvider>
         </ThemeProvider>
     );
 };
