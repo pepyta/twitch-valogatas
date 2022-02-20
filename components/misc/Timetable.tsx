@@ -10,27 +10,27 @@ const Timetable = () => {
     return (
 
         <Grid item xs={12} sx={{
-            height: 600,
-            position: "relative",
+            minHeight: 600,
             background: "url(./bg.png)",
             backgroundSize: "cover",
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
+            position: "relative",
         }}>
-
             <Container maxWidth={"lg"} sx={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
+                paddingTop: "100px",
+                paddingBottom: "100px",
             }}>
-                <Grid container columns={7}>
+                <Grid container columns={7} justifyContent={"center"}>
                     {Data.map((row, index) => (
                         <Grid
-                            xs={1}
+                            xs={2}
+                            md={1}
                             item
                             key={`timetable-image-${index}`}
                             sx={{
+                                paddingTop: 2,
+                                paddingBottom: 2,
                                 textAlign: "center",
                                 transition: ".05s all ease-in",
                                 filter: `drop-shadow(0 0 5px ${theme.palette.background.paper})`,

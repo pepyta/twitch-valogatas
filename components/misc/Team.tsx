@@ -13,10 +13,7 @@ const Team = () => {
                         </Typography>
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum cursus est vitae iaculis. Morbi consectetur interdum sollicitudin. Duis sapien magna, posuere at gravida nec, auctor ac ligula. Aenean ultricies, ligula finibus vulputate tincidunt, lorem arcu sollicitudin lacus, sed tincidunt elit mi at enim. Pellentesque posuere commodo eros, vel dictum sem consectetur vel. Aliquam ut dictum diam. Mauris finibus magna nec vulputate molestie. Mauris sagittis ut neque a porta. Sed vitae efficitur sem, ac accumsan mauris. Proin id nibh ut eros ultricies condimentum ac non dolor. Cras scelerisque augue sit amet blandit laoreet. Morbi auctor blandit libero vitae rhoncus. Etiam fringilla sapien vitae lectus gravida tempus.
-                            </Grid>
-                            <Grid item xs={12}>
-                                Proin pretium dui dolor, ut interdum ipsum fringilla nec. Cras elit tellus, porttitor in iaculis sed, dapibus euismod risus. Duis pulvinar sagittis orci, eu sagittis felis sollicitudin ac. Etiam vel mi sit amet velit volutpat tincidunt. Nam vulputate cursus dolor sed suscipit. In sapien lectus, interdum ut lorem ac, elementum aliquam nulla. Donec posuere arcu ut eleifend mollis. Aliquam ullamcorper ornare lorem, ut dapibus velit laoreet nec. Nulla sit amet ultricies sapien. Curabitur at lectus malesuada, maximus enim et, dictum dui.
+                                A Twitch Válogatás Youtube csatorna 2020 nyara óta foglalkozik a magyar Twitch csatornák klipjeivel. Napi szinten látunk el titeket különféle kategóriájú közvetítések legjobb / legviccesebb pillanataival, igényes vágással fűszerezve.
                             </Grid>
                             <Grid item xs={12}>
                                 <Grid container spacing={2}>
@@ -43,5 +40,9 @@ const Team = () => {
         </Grid>
     );
 };
+
+const data = [
+
+];
 
 export default Team;
