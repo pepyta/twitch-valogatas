@@ -33,9 +33,9 @@ export default async function(req: NextApiRequest, res: NextApiResponse) {
     }
 
     const tmp = {};
-    [...cache.keys()].forEach((key) => {
+    for(const key of cache.keys()) {
         tmp[key] = cache.get(key);
-    });
+    }
 
     res.json(tmp);
 };
