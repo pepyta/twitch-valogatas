@@ -44,11 +44,11 @@ const Team = () => {
             <Container
                 maxWidth={"lg"}
             >
+                <Typography variant={"h5"} gutterBottom sx={{ fontWeight: "bold" }}>
+                    Rólunk
+                </Typography>
                 <Card>
                     <CardContent>
-                        <Typography variant={"h5"} gutterBottom sx={{ fontWeight: "bold" }}>
-                            Rólunk
-                        </Typography>
                         <Grid container spacing={4}>
                             <Grid item xs={12}>
                                 A Twitch Válogatás Youtube csatorna 2020 nyara óta foglalkozik a magyar Twitch csatornák klipjeivel. Napi szinten látunk el titeket különféle kategóriájú közvetítések legjobb / legviccesebb pillanataival, igényes vágással fűszerezve.
