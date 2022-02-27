@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 
 const featured = [
 	"ikke_val",
-	"MOHSHOW",
+	"MOHOSHOW",
 	"rongybabaa",
 	"apietrak",
 	"SZ_RIRI",
