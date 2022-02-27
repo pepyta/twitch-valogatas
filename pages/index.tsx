@@ -1,7 +1,8 @@
+import Partners from "@components/misc/Partners";
 import Team from "@components/misc/Team";
 import Timetable from "@components/misc/Timetable";
 import Videos from "@components/misc/Videos";
-import { AppBar, Container, Grid, Toolbar, Typography } from "@mui/material";
+import { AppBar, Button, Container, Grid, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 const HomePage = () => {
@@ -14,6 +15,9 @@ const HomePage = () => {
                             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                                 Twitch válogatás
                             </Typography>
+                                <Button variant={"contained"} href={"https://discord.com/invite/YQKbMyAUYr"}>
+                                    Klip beküldés
+                                </Button>
                         </Toolbar>
                     </Container>
                 </AppBar>
@@ -21,6 +25,7 @@ const HomePage = () => {
             <Grid container spacing={2}>
                 <Timetable />
                 <Team />
+                <Partners />
                 <Videos />
             </Grid>
         </Box>
