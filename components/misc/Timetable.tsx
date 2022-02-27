@@ -11,10 +11,6 @@ const Timetable = () => {
 
         <Grid item xs={12} sx={{
             minHeight: 600,
-            background: "url(./bg.png)",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            backgroundRepeat: "no-repeat",
             position: "relative",
         }}>
             <Container maxWidth={"lg"} sx={{

@@ -1,4 +1,4 @@
-import { Box, Button, Card, Chip, Container, Grid, Skeleton, Typography } from "@mui/material";
+import { Box, Button, Card, Chip, Container, Grid, Skeleton, Typography, useTheme } from "@mui/material";
 import { youtube_v3 } from "googleapis";
 import { useEffect, useState } from "react";
 import ApiVideos from "@lib/client/Videos";
@@ -86,51 +86,57 @@ const Videos = () => {
     );
 };
 
-const Item = (props) => (
-    <a href={`https://www.youtube.com/watch?v=${props.resourceId?.videoId}`} target={"_blank"} rel={"noreferrer"}>
-        <Card
-            sx={{
-                position: "relative",
-                backgroundPosition: "center",
-                backgroundImage: `url(${props.thumbnails?.high.url})`,
-                backgroundRepeat: "no-repeat",
-                aspectRatio: `${16 / 9} `,
-                backgroundSize: "cover",
-                transition: ".05s all ease-in",
-                margin: 0,
-                ":hover": {
-                    transform: "scale(1.05)",
-                },
+const Item = (props) => {
+    const theme = useTheme();
 
-            }}
-        >
-            <Box
+    return (
+        <a href={`https://www.youtube.com/watch?v=${props.resourceId?.videoId}`} target={"_blank"} rel={"noreferrer"}>
+            <Card
                 sx={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: 92,
-                    background: "linear-gradient(0, black, transparent)",
+                    position: "relative",
+                    backgroundPosition: "center",
+                    backgroundImage: `url(${props.thumbnails?.high.url})`,
+                    backgroundRepeat: "no-repeat",
+                    aspectRatio: `${16 / 9} `,
+                    backgroundSize: "cover",
+                    transition: ".05s all ease-in",
+                    filter: `drop-shadow(0 0 5px ${theme.palette.background.paper})`,
+                    margin: 0,
+                    ":hover": {
+                        transform: "scale(1.05)",
+                        filter: "drop-shadow(0 0 5px #9146FF)",
+                    },
+    
                 }}
-            />
-            <Typography
-                sx={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    p: 2,
-                    textShadow: "0 0 4px black",
-                }}
-                noWrap
             >
-                {props.title || (
-                    <Skeleton />
-                )}
-            </Typography>
-        </Card>
-    </a>
-);
+                <Box
+                    sx={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        height: 92,
+                        background: "linear-gradient(0, black, transparent)",
+                    }}
+                />
+                <Typography
+                    sx={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        p: 2,
+                        textShadow: "0 0 4px black",
+                    }}
+                    noWrap
+                >
+                    {props.title || (
+                        <Skeleton />
+                    )}
+                </Typography>
+            </Card>
+        </a>
+    );
+}
 
 export default Videos;
