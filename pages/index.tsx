@@ -23,7 +23,7 @@ const HomePage = () => {
                                 </Grid>
                                 <Grid item sx={{ flexGrow: 1 }}>
                                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                                        Twitch válogatás
+                                        Twitch Válogatás
                                     </Typography>
                                 </Grid>
                                 <Grid item>
