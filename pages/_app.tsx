@@ -14,7 +14,7 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
         <ThemeProvider theme={theme}>
             <Head>
                 <title>
-                    Twitch válogatás
+                    Twitch Válogatás
                 </title>
             </Head>
             <CssBaseline />
