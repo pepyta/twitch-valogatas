@@ -12,11 +12,6 @@ const members = [
         role: ["Tulajdonos"],
     },
     {
-        name: "Pepyta",
-        image: "pepyta.webp",
-        role: ["Programozó"],
-    },
-    {
         name: "Celinay",
         image: "celinay.jpg",
         role: ["Videóvágó"],
@@ -25,6 +20,11 @@ const members = [
         name: "Culogep",
         image: "culogep.jpg",
         role: ["Videóvágó"]
+    },
+    {
+        name: "Pepyta",
+        image: "pepyta.webp",
+        role: ["Programozó"],
     },
     {
         name: "MrsTwitch",
@@ -46,20 +46,24 @@ const Team = () => {
             >
                 <Card>
                     <CardContent>
-                        <Typography variant={"h5"} gutterBottom>
+                        <Typography variant={"h5"} gutterBottom sx={{ fontWeight: "bold" }}>
                             Rólunk
                         </Typography>
-                        <Grid container spacing={2}>
+                        <Grid container spacing={4}>
                             <Grid item xs={12}>
                                 A Twitch Válogatás Youtube csatorna 2020 nyara óta foglalkozik a magyar Twitch csatornák klipjeivel. Napi szinten látunk el titeket különféle kategóriájú közvetítések legjobb / legviccesebb pillanataival, igényes vágással fűszerezve.
                             </Grid>
                             <Grid item xs={12}>
                                 <Grid container spacing={2} columns={members.length}>
                                     {members.map((member, index) => (
-                                        <Grid item xs={1} key={`team-${index}`}>
+                                        <Grid item xs={members.length} md={1} key={`team-${index}`}>
                                             <Grid container spacing={1}>
                                                 <Grid item xs={12}>
-                                                    <Avatar alt={member.name} src={`/img/team/${member.image}`} sx={{ margin: "auto" }} />
+                                                    <Avatar 
+                                                        alt={member.name}
+                                                        src={`/img/team/${member.image}`}
+                                                        sx={{ margin: "auto", width: 64, height: 64 }}
+                                                    />
                                                 </Grid>
                                                 <Grid item xs={12}>
                                                     <Typography sx={{ textAlign: "center", margin: "auto", }}>

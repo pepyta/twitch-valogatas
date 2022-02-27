@@ -1,5 +1,17 @@
-import { Avatar, Card, CardContent, Container, Grid, Typography } from "@mui/material";
-import { useMemo } from "react";
+import { Avatar, Card, CardActionArea, CardContent, Container, Dialog, DialogTitle, Grid, ListItem, ListItemAvatar, ListItemText, Modal, Typography } from "@mui/material";
+import { useEffect, useMemo, useState } from "react";
+
+const featured = [
+	"ikke_val",
+	"MOHSHOW",
+	"rongybabaa",
+	"apietrak",
+	"SZ_RIRI",
+	"Suisenn",
+	"welfek",
+	"nippon_twitch",
+	"Caucher",
+];
 
 const list = [
 	"AlmasPetii",
@@ -52,54 +64,79 @@ const list = [
 ];
 
 const Partners = () => {
-	const [partners, plusNumber] = useMemo(
-		() => {
-			const result: string[] = [];
+	const [open, setOpen] = useState(false);
+	const [images, setImages] = useState({});
+	
+	useEffect(() => {
+		fetch("/api/channels", {
+			method: "POST",
+			body: JSON.stringify([
+				...list,
+				...featured,
+			])
+		}).then((resp) => {
+			resp.json().then((data) => {
+				console.log(data);
+				setImages(data);
+			});
+		});
+	}, []);
 
-			const DISPLAY_NUMBER = 5;
-			const BATCH_SIZE = list.length / DISPLAY_NUMBER;
-			for (let i = 0; i < DISPLAY_NUMBER; i++) {
-				const index = Math.floor((Math.random() + i) * BATCH_SIZE);
-				result.push(list[index]);
-			}
-
-			return [result, list.length - DISPLAY_NUMBER];
-		},
-		[]
-	);
+	console.log(images);
 
 	return (
 		<Grid item xs={12}>
+			<Dialog fullWidth maxWidth={"md"} open={open} onClose={() => setOpen(false)}>
+				<DialogTitle>
+					Partnereink
+				</DialogTitle>
+				{list.map((member) => (
+					<ListItem button onClick={() => window.open(`https://twitch.tv/${member}`, "_blank")}>
+						<ListItemAvatar>
+							<Avatar src={images[member.toLowerCase()]} alt={member} />
+						</ListItemAvatar>
+						<ListItemText
+							primary={member}
+						/>
+					</ListItem>
+				))}
+			</Dialog>
 			<Container
 				maxWidth={"lg"}
+				sx={{ marginTop: 4, marginBottom: 4 }}
 			>
-				<Card>
-					<CardContent>
-						<Typography variant={"h5"} gutterBottom>
-							Partnereink
-						</Typography>
-						<Grid container spacing={2}>
-							<Grid item xs={12}>
-								<Grid container spacing={1} >
-									{partners.map((member, index) => (
-										<Grid item xs={2} key={`partner-${index}`}>
-											<Grid container spacing={1}>
-												<Grid item xs={12}>
-													<Avatar alt={member} sx={{ margin: "auto" }} />
-												</Grid>
-												<Grid item xs={12}>
-													<Typography sx={{ textAlign: "center", margin: "auto", }}>
-														{member}
-													</Typography>
-												</Grid>
+				<Typography variant={"h5"} gutterBottom sx={{ fontWeight: "bold" }}>
+					Partnereink
+				</Typography>
+				<Grid container spacing={6}>
+					<Grid item xs={12}>
+						<Grid container spacing={1} columns={featured.length + 1} >
+							{featured.map((member, index) => (
+								<Grid item md={2} xs={featured.length + 1} key={`partner-${index}`}>
+									<Card>
+									<CardActionArea onClick={() => window.open(`https://twitch.tv/${member}`, "_blank")} sx={{ cursor: "pointer" }}>
+										<Grid container spacing={1} sx={{ p: 2 }}>
+											<Grid item xs={12}>
+
+												<Avatar src={images[member.toLowerCase()]} sx={{ margin: "auto" }} alt={member} />
+											</Grid>
+											<Grid item xs={12}>
+												<Typography sx={{ textAlign: "center", margin: "auto", }}>
+													{member}
+												</Typography>
 											</Grid>
 										</Grid>
-									))}
-									<Grid item xs={2}>
-										<Grid container spacing={1}>
+										</CardActionArea>
+									</Card>
+								</Grid>
+							))}
+							<Grid item md={2} xs={featured.length + 1}>
+								<Card>
+									<CardActionArea onClick={() => setOpen(true)} sx={{ cursor: "pointer" }}>
+										<Grid container spacing={1} sx={{ p: 2 }}>
 											<Grid item xs={12}>
 												<Avatar sx={{ margin: "auto" }} >
-													{plusNumber}
+													{list.length}
 												</Avatar>
 											</Grid>
 											<Grid item xs={12}>
@@ -108,12 +145,12 @@ const Partners = () => {
 												</Typography>
 											</Grid>
 										</Grid>
-									</Grid>
-								</Grid>
+									</CardActionArea>
+								</Card>
 							</Grid>
 						</Grid>
-					</CardContent>
-				</Card>
+					</Grid>
+				</Grid>
 			</Container>
 		</Grid>
 	);

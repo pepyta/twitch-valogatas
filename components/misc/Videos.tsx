@@ -72,7 +72,7 @@ const Videos = () => {
                         <Button
                             variant={"contained"}
                             onClick={() => category.length > 0 || isExpanded ?
-                                window.location.replace("https://youtube.com/c/TwitchVálogatás") : 
+                                window.open("https://youtube.com/c/TwitchVálogatás", "_blank") : 
                                 setExpanded(true)
                             }
                             size={"large"}
@@ -87,7 +87,7 @@ const Videos = () => {
 };
 
 const Item = (props) => (
-    <a href={`https://www.youtube.com/watch?v=${props.resourceId?.videoId}`}>
+    <a href={`https://www.youtube.com/watch?v=${props.resourceId?.videoId}`} target={"_blank"}>
         <Card
             sx={{
                 position: "relative",
