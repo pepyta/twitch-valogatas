@@ -4,12 +4,12 @@ const members = [
     {
         name: "Deniels18",
         image: "deniels18.jpg",
-        role: ["Tulajdonos"],
+        role: ["Tulajdonos", "Videóvágó"],
     },
     {
         name: "Deka",
         image: "deka.jpg",
-        role: ["Tulajdonos"],
+        role: ["Tulajdonos", "Videóvágó"],
     },
     {
         name: "Celinay",
@@ -59,7 +59,7 @@ const Team = () => {
                                         <Grid item xs={members.length} md={1} key={`team-${index}`}>
                                             <Grid container spacing={1}>
                                                 <Grid item xs={12}>
-                                                    <Avatar 
+                                                    <Avatar
                                                         alt={member.name}
                                                         src={`/img/team/${member.image}`}
                                                         sx={{ margin: "auto", width: 64, height: 64 }}
@@ -69,9 +69,11 @@ const Team = () => {
                                                     <Typography sx={{ textAlign: "center", margin: "auto", }}>
                                                         {member.name}
                                                     </Typography>
-                                                    <Typography variant={"body2"} sx={{ textAlign: "center", margin: "auto", }}>
-                                                        {member.role.join(", ")}
-                                                    </Typography>
+                                                    {member.role.map((role, roleIndex) => (
+                                                        <Typography variant={"body2"} key={`role-${index}-${roleIndex}`} sx={{ textAlign: "center", margin: "auto", }}>
+                                                            {role}
+                                                        </Typography>
+                                                    ))}
                                                 </Grid>
                                             </Grid>
                                         </Grid>

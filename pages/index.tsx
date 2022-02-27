@@ -12,26 +12,26 @@ const HomePage = () => {
                 <AppBar position="static">
                     <Container maxWidth={"md"}>
                         <Toolbar>
-                            <Grid container spacing={2} alignItems={"center"}>
-                                <Grid item>
                                     <img src={"/img/logo.png"} style={{
                                         width: 42,
                                         height: 42,
-                                        marginTop: 4,
-                                        marginBottom: 4,
+                                        marginRight: 16,
                                     }} />
-                                </Grid>
-                                <Grid item sx={{ flexGrow: 1 }}>
                                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                                         Twitch Válogatás
                                     </Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Button variant={"contained"} href={"https://discord.gg/xNNA3EsSFD"}>
+                                    <Button
+                                        variant={"contained"}
+                                        href={"https://discord.gg/xNNA3EsSFD"}
+                                        sx={{
+                                            display: {
+                                                xs: "none",
+                                                md: "block",
+                                            },
+                                        }}
+                                    >
                                         Klip beküldés
                                     </Button>
-                                </Grid>
-                            </Grid>
                         </Toolbar>
                     </Container>
                 </AppBar>
