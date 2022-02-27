@@ -7,7 +7,7 @@ if(!global.twitchCache) {
 
 const cache: Map<string, string> = global.twitchCache;
 
-export default async function(req: NextApiRequest, res: NextApiResponse) {
+const getProfilePictures = async (req: NextApiRequest, res: NextApiResponse) => {
     const usernames = JSON.parse(req.body);
 
     const queries = usernames.filter((el) => !cache.has(el.toLowerCase()));
@@ -39,3 +39,5 @@ export default async function(req: NextApiRequest, res: NextApiResponse) {
 
     res.json(tmp);
 };
+
+export default getProfilePictures;

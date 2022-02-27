@@ -66,7 +66,7 @@ const list = [
 const Partners = () => {
 	const [open, setOpen] = useState(false);
 	const [images, setImages] = useState({});
-	
+
 	useEffect(() => {
 		fetch("/api/channels", {
 			method: "POST",
@@ -90,8 +90,8 @@ const Partners = () => {
 				<DialogTitle>
 					Partnereink
 				</DialogTitle>
-				{list.map((member) => (
-					<ListItem button onClick={() => window.open(`https://twitch.tv/${member}`, "_blank")}>
+				{list.map((member, index) => (
+					<ListItem key={`partner-modal-${member}-${index}`} button onClick={() => window.open(`https://twitch.tv/${member}`, "_blank")}>
 						<ListItemAvatar>
 							<Avatar src={images[member.toLowerCase()]} alt={member} />
 						</ListItemAvatar>
@@ -112,20 +112,20 @@ const Partners = () => {
 					<Grid item xs={12}>
 						<Grid container spacing={1} columns={featured.length + 1} >
 							{featured.map((member, index) => (
-								<Grid item md={2} xs={featured.length + 1} key={`partner-${index}`}>
+								<Grid item md={2} xs={featured.length + 1} key={`partner-${member}-${index}`}>
 									<Card>
-									<CardActionArea onClick={() => window.open(`https://twitch.tv/${member}`, "_blank")} sx={{ cursor: "pointer" }}>
-										<Grid container spacing={1} sx={{ p: 2 }}>
-											<Grid item xs={12}>
+										<CardActionArea onClick={() => window.open(`https://twitch.tv/${member}`, "_blank")} sx={{ cursor: "pointer" }}>
+											<Grid container spacing={1} sx={{ p: 2 }}>
+												<Grid item xs={12}>
 
-												<Avatar src={images[member.toLowerCase()]} sx={{ margin: "auto" }} alt={member} />
+													<Avatar src={images[member.toLowerCase()]} sx={{ margin: "auto" }} alt={member} />
+												</Grid>
+												<Grid item xs={12}>
+													<Typography sx={{ textAlign: "center", margin: "auto", }}>
+														{member}
+													</Typography>
+												</Grid>
 											</Grid>
-											<Grid item xs={12}>
-												<Typography sx={{ textAlign: "center", margin: "auto", }}>
-													{member}
-												</Typography>
-											</Grid>
-										</Grid>
 										</CardActionArea>
 									</Card>
 								</Grid>

@@ -87,7 +87,7 @@ const Videos = () => {
 };
 
 const Item = (props) => (
-    <a href={`https://www.youtube.com/watch?v=${props.resourceId?.videoId}`} target={"_blank"}>
+    <a href={`https://www.youtube.com/watch?v=${props.resourceId?.videoId}`} target={"_blank"} rel={"noreferrer"}>
         <Card
             sx={{
                 position: "relative",
