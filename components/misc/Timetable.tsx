@@ -49,6 +49,7 @@ const Timetable = () => {
                     ))}
                 </Grid>
             </Container>
+            {/* 
             <Box
                 sx={{
                     bottom: 0,
@@ -59,6 +60,7 @@ const Timetable = () => {
                     height: 64,
                 }}
             />
+            */}
         </Grid>
     );
 };

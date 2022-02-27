@@ -15,8 +15,8 @@ const HomePage = () => {
                             <Grid container spacing={2} alignItems={"center"}>
                                 <Grid item>
                                     <img src={"/img/logo.png"} style={{
-                                        width: 32,
-                                        height: 32,
+                                        width: 42,
+                                        height: 42,
                                         marginTop: 4,
                                         marginBottom: 4,
                                     }} />
