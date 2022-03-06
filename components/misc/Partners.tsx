@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 const featured = [
 	"ikke_val",
 	"MOHOSHOW",
-	"rongybabaa",
+	"ujvi86hun",
 	"apietrak",
 	"SZ_RIRI",
 	"Suisenn",
@@ -14,6 +14,7 @@ const featured = [
 ];
 
 const list = [
+	"applebr1nger",
 	"AlmasPetii",
 	"Betti_Plays",
 	"ikke_val",
@@ -61,6 +62,7 @@ const list = [
 	"mariomahmoud",
 	"koprator",
 	"nippon_twitch",
+	"ujvi86hun",
 ];
 
 const Partners = () => {
