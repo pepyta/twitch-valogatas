@@ -1,21 +1,21 @@
 const Timetable = [
     {
         day: 1,
-        name: "League of Legends",
-        image: "lol.png",
-        regex: "Lol",
+        name: "Valorant",
+        image: "valorant.png",
+        regex: "Valorant",
     },
     {
         day: 2,
-        name: "FIFA 22",
-        image: "fifa.png",
-        regex: "Fifa",
+        name: "Hype kedd",
+        image: "hype.png",
+        regex: "HYPEKEDD",
     },
     {
-        day: 3,
-        name: "Grand Theft Auto V",
-        image: "gta.png",
-        regex: "GTA",
+        day: 2,
+        name: "TBA",
+        image: "szerda.png",
+        regex: "---",
     },
     {
         day: 4,
@@ -25,15 +25,15 @@ const Timetable = [
     },
     {
         day: 5,
-        name: "Valorant",
-        image: "valorant.png",
-        regex: "Valorant",
+        name: "Grand Theft Auto V",
+        image: "gta.png",
+        regex: "GTA",
     },
     {
         day: 6,
-        name: "COD: Warzone",
-        image: "warzone.png",
-        regex: "Warzone",
+        name: "League of Legends",
+        image: "lol.png",
+        regex: "Lol",
     },
     {
         day: 0,
