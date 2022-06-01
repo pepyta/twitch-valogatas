@@ -1,28 +1,35 @@
-import CategoryProvider from "@components/providers/CategoryProvider";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { AppProps } from "next/app";
-import Head from "next/head";
+import { SessionProvider } from "next-auth/react";
+import GatewayProvider from "components/providers/GatewayProvider";
+import { SnackbarProvider } from "notistack";
 
 const theme = createTheme({
     palette: {
         mode: "dark",
     },
+    components: {
+        MuiTextField: {
+            defaultProps: {
+                variant: "filled",
+            },
+        },
+    },
 });
 
-const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
         <ThemeProvider theme={theme}>
-            <Head>
-                <title>
-                    Twitch Válogatás
-                </title>
-            </Head>
             <CssBaseline />
-            <CategoryProvider>
-                <Component {...pageProps} />
-            </CategoryProvider>
+            <SnackbarProvider>
+                <SessionProvider>
+                    <GatewayProvider>
+                        <Component {...pageProps} />
+                    </GatewayProvider>
+                </SessionProvider>
+            </SnackbarProvider>
         </ThemeProvider>
     );
 };
 
-export default MyApp
+export default MyApp;
