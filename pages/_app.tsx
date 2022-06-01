@@ -2,6 +2,8 @@ import CategoryProvider from "@components/providers/CategoryProvider";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import { SessionProvider } from "next-auth/react";
+import GatewayProvider from "@components/misc/GatewayProvider";
 
 const theme = createTheme({
     palette: {
@@ -18,9 +20,13 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
                 </title>
             </Head>
             <CssBaseline />
-            <CategoryProvider>
-                <Component {...pageProps} />
-            </CategoryProvider>
+            <SessionProvider>
+                <GatewayProvider>
+                    <CategoryProvider>
+                        <Component {...pageProps} />
+                    </CategoryProvider>
+                </GatewayProvider>
+            </SessionProvider>
         </ThemeProvider>
     );
 };
