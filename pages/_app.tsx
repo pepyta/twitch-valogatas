@@ -1,7 +1,7 @@
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
-import GatewayProvider from "components/providers/GatewayProvider";
+import GatewayProvider from "@components/providers/GatewayProvider";
 import { SnackbarProvider } from "notistack";
 
 const theme = createTheme({

@@ -1,4 +1,4 @@
-import LoadingScreen from "components/misc/LoadingScreen";
+import LoadingScreen from "@components/misc/LoadingScreen";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { PropsWithChildren, useEffect } from "react";
