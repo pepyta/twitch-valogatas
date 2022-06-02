@@ -1,7 +1,7 @@
 import { Grid, TextField } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LoadingButton } from "@mui/lab";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 
@@ -10,6 +10,7 @@ const LoginPage = () => {
     const [password, setPassword] = useState("");
     const [isLoading, setLoading] = useState(false);
     const { enqueueSnackbar } = useSnackbar();
+    const { status } = useSession();
     const router = useRouter();
 
     const login = async () => {
@@ -35,6 +36,10 @@ const LoginPage = () => {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        if(status === "authenticated") router.push("/admin");
+    }, [status]);
 
     return (
         <Grid container>

@@ -8,6 +8,24 @@ import { Box } from "@mui/system";
 const HomePage = () => {
     return (
         <Box>
+            <Box
+                sx={{
+                    width: "100vw",
+                    height: "100vh",
+                    position: "fixed",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    background: "url(/bg.png)",
+                    backgroundColor: "#121212",
+                    backgroundPosition: "center center",
+                    backgroundRrepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    backgroundAttachment: "fixed",
+                    zIndex: -1
+                }}
+            />
             <Box sx={{ flexGrow: 1, mb: 2 }}>
                 <AppBar position="static">
                     <Container maxWidth={"md"}>

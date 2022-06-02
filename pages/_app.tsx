@@ -3,11 +3,19 @@ import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
-import GatewayProvider from "@components/misc/GatewayProvider";
+import GatewayProvider from "@components/providers/GatewayProvider";
+import { SnackbarProvider } from "notistack";
 
 const theme = createTheme({
     palette: {
         mode: "dark",
+    },
+    components: {
+        MuiTextField: {
+            defaultProps: {
+                variant: "filled",
+            },
+        },
     },
 });
 
@@ -20,13 +28,15 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
                 </title>
             </Head>
             <CssBaseline />
-            <SessionProvider>
-                <GatewayProvider>
-                    <CategoryProvider>
-                        <Component {...pageProps} />
-                    </CategoryProvider>
-                </GatewayProvider>
-            </SessionProvider>
+            <SnackbarProvider>
+                <SessionProvider>
+                    <GatewayProvider>
+                        <CategoryProvider>
+                            <Component {...pageProps} />
+                        </CategoryProvider>
+                    </GatewayProvider>
+                </SessionProvider>
+            </SnackbarProvider>
         </ThemeProvider>
     );
 };

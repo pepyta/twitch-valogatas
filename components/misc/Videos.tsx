@@ -33,7 +33,7 @@ const Videos = () => {
                                 >
                                     <Chip
                                         label={el.name}
-                                        icon={category.includes(index) && <DoneRounded />}
+                                        icon={category.includes(index) ? <DoneRounded /> : undefined}
                                         onClick={() => toggle(index)}
                                     />
                                 </Grid>
