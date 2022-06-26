@@ -31,6 +31,16 @@ const members = [
         image: "mrstwitch.jpg",
         role: ["Moderátor"],
     },
+    {
+        name: "Farkas",
+        image: "farkas.png",
+        role: ["Moderátor"],
+    },
+    {
+        name: "Selymi",
+        image: "selymi.png",
+        role: ["Grafikus"],
+    },
 ];
 
 const Team = () => {
