@@ -39,8 +39,21 @@ const HomePage = () => {
                                         Twitch Válogatás
                                     </Typography>
                                     <Button
+                                        variant={"text"}
+                                        href={"https://discord.io/videorendeles"}
+                                        sx={{
+                                            mr: 2,
+                                            display: {
+                                                xs: "none",
+                                                md: "block",
+                                            },
+                                        }}
+                                    >
+                                        Videórendelés
+                                    </Button>
+                                    <Button
                                         variant={"contained"}
-                                        href={"https://discord.gg/xNNA3EsSFD"}
+                                        href={"https://discord.io/twitchvalogatas.hu"}
                                         sx={{
                                             display: {
                                                 xs: "none",
