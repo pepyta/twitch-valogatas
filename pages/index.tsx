@@ -53,7 +53,7 @@ const HomePage = () => {
                                     </Button>
                                     <Button
                                         variant={"contained"}
-                                        href={"https://discord.io/twitchvalogatas.hu"}
+                                        href={"https://discord.io/twitchvalogatas"}
                                         sx={{
                                             display: {
                                                 xs: "none",
