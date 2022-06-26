@@ -63,6 +63,11 @@ const list = [
 	"koprator",
 	"nippon_twitch",
 	"ujvi86hun",
+	"Alexis21",
+	"NagyiRP",
+	"tompo__",
+	"Fene_Channel",
+	"dorothy_field",
 ];
 
 const Partners = () => {
