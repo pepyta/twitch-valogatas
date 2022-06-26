@@ -31,11 +31,6 @@ const members = [
         image: "mrstwitch.jpg",
         role: ["Moderátor"],
     },
-    {
-        name: "Jeszoka",
-        image: "jeszoka.jpg",
-        role: ["Moderátor"],
-    }
 ];
 
 const Team = () => {
